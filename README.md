@@ -4,6 +4,7 @@ Data files read by QuantConnect backtests in a personal trading research project
 
 | File | What it holds | Source |
 |---|---|---|
+| `vix/vx_position_daily_to2022.csv` | VIX futures position contract (front month, second month within 5 trading days of expiry), daily open and settle, 2004-2022, with a ratio-adjusted return index | Cboe futures historical data (public) |
 | `insider/insider_buys_2010_2022.csv` | Corporate insiders' open-market purchases, one row per filing date and ticker, 2010-2022 | SEC Insider Transactions Data Sets (public) |
 
 ## insider_buys_2010_2022.csv
@@ -16,3 +17,15 @@ Filters: Form 4 open-market purchases (code P) of common stock by officers or di
 | `ticker` | Issuer's ticker as reported on the filing |
 | `opportunistic` | True if the insider traded in each of the 3 prior years and not in this calendar month in all 3 (Cohen, Malloy & Pomorski 2012) |
 | `cluster` | True if a different insider of the same company filed a buy within the prior 10 days |
+
+## vx_position_daily_to2022.csv
+
+| Column | Meaning |
+|---|---|
+| `date` | Trading day |
+| `contract_expiry` | Expiry of the contract held that day |
+| `open`, `settle` | That contract's open and settlement price (index points) |
+| `open_is_proxy` | 1 if the open was missing and the previous settle was used |
+| `roll_flag` | 1 on the first day a new contract is held |
+| `adj_open`, `adj_settle` | Ratio-adjusted index: day-to-day changes equal the held contract's return; use for returns only |
+| `f1_settle` | Front-month settle, for reference |
