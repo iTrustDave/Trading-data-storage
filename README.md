@@ -5,6 +5,7 @@ Data files read by QuantConnect backtests in a personal trading research project
 | File | What it holds | Source |
 |---|---|---|
 | `vix/vx_position_daily_to2022.csv` | VIX futures position contract (front month, second month within 5 trading days of expiry), daily open and settle, 2004-2022, with a ratio-adjusted return index | Cboe futures historical data (public) |
+| `vix/vx_position_second_daily_to2022.csv` | Same as above, but the held contract is the second month (third when the front expires within 5 trading days) | Cboe futures historical data (public) |
 | `insider/insider_buys_2010_2022.csv` | Corporate insiders' open-market purchases, one row per filing date and ticker, 2010-2022 | SEC Insider Transactions Data Sets (public) |
 
 ## insider_buys_2010_2022.csv
